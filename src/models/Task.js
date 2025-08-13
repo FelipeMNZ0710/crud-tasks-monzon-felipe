@@ -20,6 +20,15 @@ const Task = sequelize.define('Task', {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
+  
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false, 
+    references: {
+      model: 'Users', 
+      key: 'id',
+    }
+  }
 });
 
 export default Task;

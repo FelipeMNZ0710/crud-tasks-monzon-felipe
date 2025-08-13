@@ -4,6 +4,8 @@ import userRoutes from './src/routes/user.routes.js';
 import taskRoutes from './src/routes/task.routes.js';
 import sequelize from './src/config/database.js';
 
+import './src/models/relations.js';
+
 dotenv.config();
 
 const app = express();
@@ -17,8 +19,10 @@ app.use('/api/tasks', taskRoutes);
 const startServer = async () => {
   try {
 
-    await sequelize.sync(); 
-    console.log('Conexión a la base de datos establecida correctamente.');
+    // Sincronizamos la base de datos con los modelos
+    // { alter: true } actualiza las tablas sin borrarlas si hay cambios en los modelos
+    await sequelize.sync({ alter: true }); 
+    console.log('Conexión y sincronización con la base de datos establecidas correctamente.');
 
     app.listen(PORT, () => {
       console.log(`Servidor corriendo en el puerto ${PORT}`);
