@@ -4,6 +4,7 @@ import Task from './Task.js';
 User.hasMany(Task, {
   foreignKey: 'userId',
   sourceKey: 'id',
+  onDelete: 'CASCADE'
 });
 
 Task.belongsTo(User, {
@@ -11,4 +12,4 @@ Task.belongsTo(User, {
   targetKey: 'id',
 });
 
-export { User, Task }; 
+export { User, Task };

@@ -18,10 +18,7 @@ app.use('/api/tasks', taskRoutes);
 
 const startServer = async () => {
   try {
-
-    // Sincronizamos la base de datos con los modelos
-    // { alter: true } actualiza las tablas sin borrarlas si hay cambios en los modelos
-    await sequelize.sync({ alter: true }); 
+    await sequelize.sync({ alter: true });
     console.log('Conexión y sincronización con la base de datos establecidas correctamente.');
 
     app.listen(PORT, () => {

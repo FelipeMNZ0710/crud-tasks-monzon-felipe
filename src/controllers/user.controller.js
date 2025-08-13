@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import Task from '../models/Task.js';
 
 export const createUser = async (req, res) => {
   try {
@@ -22,7 +23,13 @@ export const createUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      attributes: { exclude: ['password'] },
+      include: {
+        model: Task,
+        attributes: ['id', 'title', 'description', 'isComplete']
+      }
+    });
     res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener los usuarios.', error: error.message });
@@ -32,7 +39,13 @@ export const getUsers = async (req, res) => {
 export const getUserById = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ['password'] },
+      include: {
+        model: Task,
+        attributes: ['id', 'title', 'description', 'isComplete']
+      }
+    });
 
     if (!user) {
       return res.status(404).json({ message: 'Usuario no encontrado.' });
