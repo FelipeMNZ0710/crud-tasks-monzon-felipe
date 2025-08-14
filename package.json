@@ -1,13 +1,20 @@
 {
   "name": "crud-tasks-monzon-felipe",
   "version": "1.0.0",
-  "description": "",
+  "description": "Una API para gestionar usuarios y tareas con relaciones Sequelize.",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "sequelize",
+    "express",
+    "mysql",
+    "api"
+  ],
+  "author": "Felipe Monzon",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.1",
