@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import userRoutes from './src/routes/user.routes.js';
 import taskRoutes from './src/routes/task.routes.js';
+import userProfileRoutes from './src/routes/userProfile.routes.js';
 import sequelize from './src/config/database.js';
 
 import './src/models/relations.js';
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
+app.use('/api/user_profiles', userProfileRoutes);
 
 const startServer = async () => {
   try {

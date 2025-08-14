@@ -1,5 +1,6 @@
 import User from './User.js';
 import Task from './Task.js';
+import UserProfile from './UserProfile.js';
 
 User.hasMany(Task, {
   foreignKey: 'userId',
@@ -12,4 +13,13 @@ Task.belongsTo(User, {
   targetKey: 'id',
 });
 
-export { User, Task };
+User.hasOne(UserProfile, {
+  foreignKey: 'userId',
+  onDelete: 'CASCADE'
+});
+
+UserProfile.belongsTo(User, {
+  foreignKey: 'userId'
+});
+
+export { User, Task, UserProfile };
