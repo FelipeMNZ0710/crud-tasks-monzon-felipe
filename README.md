@@ -1,3 +1,4 @@
 ﻿# crud-tasks-monzon-felipe
 
-Si no pone le da a la ''⭐'' este proyecto no funcionara :D
+Si no le apreta en la ''⭐'' este proyecto no funcionara ;)
+
