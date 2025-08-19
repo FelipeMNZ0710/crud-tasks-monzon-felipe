@@ -5,9 +5,7 @@ import taskRoutes from './src/routes/task.routes.js';
 import userProfileRoutes from './src/routes/userProfile.routes.js';
 import projectRoutes from './src/routes/project.routes.js'; 
 import tagRoutes from './src/routes/tag.routes.js';       
-import sequelize from './src/config/database.js';
-
-import './src/models/relations.js';
+import { sequelize } from './src/config/database.js';
 
 dotenv.config();
 
